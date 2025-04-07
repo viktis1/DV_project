@@ -1,0 +1,98 @@
+_wandb:
+    value:
+        cli_version: 0.19.9
+        m: []
+        python_version: 3.12.9
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 55
+                - 71
+                - 83
+                - 98
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 55
+                - 71
+                - 83
+                - 98
+            "3":
+                - 13
+                - 16
+                - 23
+                - 55
+                - 61
+            "4": 3.12.9
+            "5": 0.19.9
+            "6": 4.49.0
+            "8":
+                - 3
+                - 5
+            "12": 0.19.9
+            "13": windows-amd64
+center_crop:
+    value: false
+checkpointing_steps:
+    value: 500
+checkpoints_total_limit:
+    value: null
+gradient_accumulation_steps:
+    value: 2
+gradient_checkpointing:
+    value: true
+learning_rate:
+    value: 0.0001
+local_rank:
+    value: -1
+lr_num_cycles:
+    value: 1
+lr_scheduler:
+    value: constant
+lr_warmup_steps:
+    value: 500
+max_train_steps:
+    value: 1500
+mixed_precision:
+    value: fp16
+num_validation_images:
+    value: 4
+output_dir:
+    value: rank32
+pretrained_model_name_or_path:
+    value: stable-diffusion-v1-5/stable-diffusion-v1-5
+rank:
+    value: 32
+resolution:
+    value: 512
+resume_from_checkpoint:
+    value: null
+revision:
+    value: null
+save_as_full_pipeline:
+    value: false
+save_steps:
+    value: 500
+scale_lr:
+    value: false
+seed:
+    value: 42
+tokenizer_name:
+    value: null
+train_batch_size:
+    value: 2
+train_data_dir:
+    value: C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1
+unet_name:
+    value: null
+validation_prompt:
+    value: A chest X-ray image
+validation_steps:
+    value: 100
+variant:
+    value: null

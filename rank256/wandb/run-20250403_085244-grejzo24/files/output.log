@@ -1,0 +1,22 @@
+{'prediction_type', 'rescale_betas_zero_snr', 'sample_max_value', 'clip_sample_range', 'dynamic_thresholding_ratio', 'timestep_spacing', 'variance_type', 'thresholding'} was not found in config. Values will be initialized to default values.
+{'shift_factor', 'use_quant_conv', 'force_upcast', 'scaling_factor', 'mid_block_add_attention', 'latents_mean', 'use_post_quant_conv', 'latents_std'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+{'resnet_time_scale_shift', 'timestep_post_act', 'class_embed_type', 'conv_in_kernel', 'dropout', 'encoder_hid_dim', 'time_cond_proj_dim', 'only_cross_attention', 'attention_type', 'time_embedding_type', 'projection_class_embeddings_input_dim', 'resnet_skip_time_act', 'addition_embed_type', 'mid_block_type', 'num_class_embeds', 'addition_embed_type_num_heads', 'dual_cross_attention', 'resnet_out_scale_factor', 'time_embedding_dim', 'use_linear_projection', 'conv_out_kernel', 'reverse_transformer_layers_per_block', 'num_attention_heads', 'addition_time_embed_dim', 'transformer_layers_per_block', 'encoder_hid_dim_type', 'mid_block_only_cross_attention', 'upcast_attention', 'time_embedding_act_fn', 'cross_attention_norm', 'class_embeddings_concat'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing UNet2DConditionModel.
+
+All the weights of UNet2DConditionModel were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use UNet2DConditionModel for predictions without further training.
+Total trainable LoRA parameters: 51019776
+***** Running training *****
+  Num examples = 223414
+  Num Epochs = 1
+  Instantaneous batch size per device = 2
+  Total train batch size (w. parallel, distributed & accumulation) = 4
+  Gradient Accumulation steps = 2
+  Total optimization steps = 4000
+Resuming full training state from rank256\checkpoint-6000
+Steps: 6000it [00:02, ?it/s, loss=0.224, lr=0.0001]Model weights saved in rank256/lora-steps-6000/pytorch_lora_weights.safetensors
+Saving LoRA weights only

@@ -1,0 +1,16 @@
+{"time":"2025-04-03T08:52:44.2905762+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"rank256\\wandb\\run-20250403_085244-grejzo24\\logs\\debug-core.log"}
+{"time":"2025-04-03T08:52:44.8844943+02:00","level":"INFO","msg":"created new stream","id":"grejzo24"}
+{"time":"2025-04-03T08:52:44.8844943+02:00","level":"INFO","msg":"stream: started","id":"grejzo24"}
+{"time":"2025-04-03T08:52:44.897838+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:52:44.897838+02:00","level":"INFO","msg":"handler: started","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:52:44.9153016+02:00","level":"INFO","msg":"sender: started","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:52:45.2162272+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-03T08:53:25.7785728+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-03T08:53:25.7790832+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-03T08:53:26.6956389+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-03T08:53:26.7562957+02:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading history steps 0-0, summary, console lines 20-21","runtime_seconds":0.0605935}],"total_operations":1}}
+{"time":"2025-04-03T08:53:26.9060816+02:00","level":"INFO","msg":"stream: closing","id":"grejzo24"}
+{"time":"2025-04-03T08:53:26.9060816+02:00","level":"INFO","msg":"handler: closed","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:53:26.9060816+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:53:26.9069244+02:00","level":"INFO","msg":"sender: closed","stream_id":"grejzo24"}
+{"time":"2025-04-03T08:53:26.9174072+02:00","level":"INFO","msg":"stream: closed","id":"grejzo24"}

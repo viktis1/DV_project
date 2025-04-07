@@ -1,0 +1,43 @@
+accelerate launch SD_finetuning_train.py `
+--pretrained_model_name_or_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
+--train_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
+--mixed_precision "fp16" `
+--validation_prompt "A chest X-ray image" `
+--output_dir "rank256_condanduncond" `
+--max_train_steps 5000 `
+--train_batch_size 2 `
+--gradient_accumulation_steps 2 `
+--gradient_checkpointing `
+--rank 256 `
+--resume_from_checkpoint latest `
+--checkpoints_total_limit 2
+
+python generate_images.py `
+    --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
+    --lora_weights_path "rank256_condanduncond/lora-steps-3500" `
+    --prompt `
+    "An X-ray image of a chest with Atelectasis" `
+    "An X-ray image of a chest with Cardiomegaly" `
+    "An X-ray image of a chest with Consolidation" `
+    "An X-ray image of a chest with Edema" `
+    "An X-ray image of a chest with Enlarged Cardiomediastinum" `
+    "An X-ray image of a chest with Fracture" `
+    "An X-ray image of a chest with Lung Lesion" `
+    "An X-ray image of a chest with Lung Opacity" `
+    "An X-ray image of a chest with Pleural Effusion" `
+    "An X-ray image of a chest with Pleural Other" `
+    "An X-ray image of a chest with Pneumonia" `
+    "An X-ray image of a chest with Pneumothorax" `
+    "An X-ray image of a chest with Support Devices" `
+    "An X-ray image of a chest with No Finding" `
+    --num_images 2 `
+    --num_inference_steps 50 `
+    --seed 42 `
+    --mixed_precision fp16 `
+    --device cuda `
+    --guidance_scale 7.5
+
+Notes (dont copy):
+1. I can run train_batch_size=4, but it is almost 10GB VRAM. Lags my computer
+2. the rank means that we are training ~200k parameters per rank.
+3. we have to train unconditionally as well since the memorization paper relies on a good estimate of unconditional prompted as well.

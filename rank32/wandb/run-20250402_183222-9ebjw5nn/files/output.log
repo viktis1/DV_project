@@ -1,0 +1,33 @@
+{'dynamic_thresholding_ratio', 'rescale_betas_zero_snr', 'prediction_type', 'thresholding', 'sample_max_value', 'variance_type', 'clip_sample_range', 'timestep_spacing'} was not found in config. Values will be initialized to default values.
+{'scaling_factor', 'use_post_quant_conv', 'shift_factor', 'mid_block_add_attention', 'force_upcast', 'latents_mean', 'latents_std', 'use_quant_conv'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+{'encoder_hid_dim', 'mid_block_only_cross_attention', 'addition_time_embed_dim', 'dropout', 'mid_block_type', 'only_cross_attention', 'cross_attention_norm', 'addition_embed_type_num_heads', 'use_linear_projection', 'num_class_embeds', 'dual_cross_attention', 'transformer_layers_per_block', 'encoder_hid_dim_type', 'addition_embed_type', 'time_embedding_act_fn', 'timestep_post_act', 'resnet_time_scale_shift', 'attention_type', 'conv_out_kernel', 'resnet_out_scale_factor', 'reverse_transformer_layers_per_block', 'time_cond_proj_dim', 'class_embed_type', 'time_embedding_type', 'time_embedding_dim', 'upcast_attention', 'num_attention_heads', 'resnet_skip_time_act', 'class_embeddings_concat', 'conv_in_kernel', 'projection_class_embeddings_input_dim'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing UNet2DConditionModel.
+
+All the weights of UNet2DConditionModel were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use UNet2DConditionModel for predictions without further training.
+***** Running training *****
+  Num examples = 223414
+  Num Epochs = 1
+  Instantaneous batch size per device = 2
+  Total train batch size (w. parallel, distributed & accumulation) = 4
+  Gradient Accumulation steps = 2
+  Total optimization steps = 1500
+Steps:   5%|███████                                                                                                                                             | 71/1500 [01:12<28:11,  1.18s/it, loss=0.0631, lr=0.0001]Traceback (most recent call last):
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 473, in <module>
+    main()
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 385, in main
+    accelerator.backward(loss)
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\accelerate\accelerator.py", line 2450, in backward
+    self.scaler.scale(loss).backward(**kwargs)
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\autograd\__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\autograd\graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

@@ -1,0 +1,15 @@
+{"time":"2025-04-02T15:36:18.6912526+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"first_attempt\\wandb\\run-20250402_153618-dgrcroko\\logs\\debug-core.log"}
+{"time":"2025-04-02T15:36:18.9902074+02:00","level":"INFO","msg":"created new stream","id":"dgrcroko"}
+{"time":"2025-04-02T15:36:18.9902074+02:00","level":"INFO","msg":"stream: started","id":"dgrcroko"}
+{"time":"2025-04-02T15:36:18.9904889+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"dgrcroko"}
+{"time":"2025-04-02T15:36:18.9909984+02:00","level":"INFO","msg":"sender: started","stream_id":"dgrcroko"}
+{"time":"2025-04-02T15:36:18.9915967+02:00","level":"INFO","msg":"handler: started","stream_id":"dgrcroko"}
+{"time":"2025-04-02T15:36:19.2352109+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-02T16:07:33.3827244+02:00","level":"INFO","msg":"stream: closing","id":"dgrcroko"}
+{"time":"2025-04-02T16:07:33.3832908+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-02T16:07:33.3838134+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-02T16:07:33.9812502+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-02T16:07:34.1839673+02:00","level":"INFO","msg":"handler: closed","stream_id":"dgrcroko"}
+{"time":"2025-04-02T16:07:34.1839673+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"dgrcroko"}
+{"time":"2025-04-02T16:07:34.1860985+02:00","level":"INFO","msg":"sender: closed","stream_id":"dgrcroko"}
+{"time":"2025-04-02T16:07:34.1860985+02:00","level":"INFO","msg":"stream: closed","id":"dgrcroko"}

@@ -1,0 +1,17 @@
+{"time":"2025-04-02T20:33:00.1649122+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"rank256\\wandb\\run-20250402_203300-znu1jzd1\\logs\\debug-core.log"}
+{"time":"2025-04-02T20:33:00.4496934+02:00","level":"INFO","msg":"created new stream","id":"znu1jzd1"}
+{"time":"2025-04-02T20:33:00.4496934+02:00","level":"INFO","msg":"stream: started","id":"znu1jzd1"}
+{"time":"2025-04-02T20:33:00.4496934+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T20:33:00.4501964+02:00","level":"INFO","msg":"handler: started","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T20:33:00.4501964+02:00","level":"INFO","msg":"sender: started","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T20:33:00.7553242+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-02T21:41:12.2288941+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-02T21:41:12.3376029+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/group-13/DL%20CV%20project/znu1jzd1/file_stream\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-02T22:24:57.9872995+02:00","level":"INFO","msg":"stream: closing","id":"znu1jzd1"}
+{"time":"2025-04-02T22:24:57.9878701+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-02T22:24:57.9884275+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-02T22:25:01.3642687+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-02T22:25:02.7453946+02:00","level":"INFO","msg":"handler: closed","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T22:25:02.7458988+02:00","level":"INFO","msg":"sender: closed","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T22:25:02.7453946+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"znu1jzd1"}
+{"time":"2025-04-02T22:25:02.7469923+02:00","level":"INFO","msg":"stream: closed","id":"znu1jzd1"}

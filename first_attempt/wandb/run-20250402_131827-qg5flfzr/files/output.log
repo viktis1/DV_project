@@ -1,0 +1,54 @@
+{'sample_max_value', 'prediction_type', 'rescale_betas_zero_snr', 'dynamic_thresholding_ratio', 'thresholding', 'timestep_spacing', 'clip_sample_range', 'variance_type'} was not found in config. Values will be initialized to default values.
+{'scaling_factor', 'use_post_quant_conv', 'force_upcast', 'shift_factor', 'latents_std', 'latents_mean', 'mid_block_add_attention', 'use_quant_conv'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+{'resnet_skip_time_act', 'cross_attention_norm', 'projection_class_embeddings_input_dim', 'encoder_hid_dim', 'mid_block_only_cross_attention', 'dropout', 'mid_block_type', 'addition_time_embed_dim', 'time_embedding_act_fn', 'resnet_out_scale_factor', 'time_embedding_type', 'timestep_post_act', 'conv_in_kernel', 'class_embed_type', 'only_cross_attention', 'addition_embed_type', 'use_linear_projection', 'transformer_layers_per_block', 'encoder_hid_dim_type', 'class_embeddings_concat', 'conv_out_kernel', 'time_cond_proj_dim', 'reverse_transformer_layers_per_block', 'num_attention_heads', 'attention_type', 'time_embedding_dim', 'num_class_embeds', 'addition_embed_type_num_heads', 'dual_cross_attention', 'resnet_time_scale_shift', 'upcast_attention'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing UNet2DConditionModel.
+
+All the weights of UNet2DConditionModel were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use UNet2DConditionModel for predictions without further training.
+***** Running training *****
+  Num examples = 223414
+  Num Epochs = 1
+  Instantaneous batch size per device = 1
+  Total train batch size (w. parallel, distributed & accumulation) = 1
+  Gradient Accumulation steps = 1
+  Total optimization steps = 5000
+Steps:   0%|                                                                                                                                                                                     | 0/5000 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 444, in <module>
+    main()
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 359, in main
+    optimizer.step()
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\accelerate\optimizer.py", line 165, in step
+    self.scaler.step(self.optimizer, closure)
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\amp\grad_scaler.py", line 457, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\amp\grad_scaler.py", line 352, in _maybe_opt_step
+    retval = optimizer.step(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\accelerate\optimizer.py", line 210, in patched_step
+    return method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\lr_scheduler.py", line 137, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\optimizer.py", line 487, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\optimizer.py", line 91, in _use_grad
+    ret = func(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\adamw.py", line 220, in step
+    adamw(
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\optimizer.py", line 154, in maybe_fallback
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\adamw.py", line 782, in adamw
+    func(
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\optim\adamw.py", line 606, in _multi_tensor_adamw
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 58.00 MiB. GPU 0 has a total capacity of 10.00 GiB of which 0 bytes is free. Of the allocated memory 16.31 GiB is allocated by PyTorch, and 178.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
