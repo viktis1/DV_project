@@ -88,27 +88,60 @@ class CheXpertDataset(Dataset):
         image = Image.open(img_path).convert("RGB")
         image = self.transform(image) # Don't care about the interpolation method of transforming image
         
-        if random.random() < 0.1: # Train unconditionally 10% of the time
-            prompt = ""  
+        # Generate text prompt
+        if random.random() < 0.1:
+            prompt = ""
         else:
-            # Extract present labels
             present_labels = [label for label in self.label_cols if row[label] == 1.0]
 
-            # Decide how to phrase the prompt
+            # --- Metadata - we also condition on this (90% we use) ---
+            if random.random() < 0.9:
+                sex = row.get("Sex", "Unknown")
+                age = int(row.get("Age", -1)) if not pd.isna(row.get("Age")) else "Unknown"
+                view_type = row.get("Frontal/Lateral", "").strip()
+                projection = str(row.get("AP/PA", "")).strip()
+
+                # Build metadata string
+                meta_parts = []
+                view_type = str(row.get("Frontal/Lateral", "")).strip()
+                if view_type and view_type.lower() != "nan":
+                    meta_parts.append(f"{view_type.lower()} view")
+
+                projection = str(row.get("AP/PA", "")).strip()
+                if projection and projection.lower() != "nan":
+                    meta_parts.append(f"{projection} projection")
+
+                sex = str(row.get("Sex", "")).strip()
+                if sex and sex.lower() != "nan":
+                    meta_parts.append(f"{sex.lower()} patient")
+
+                age = int(row.get("Age", -1)) if not pd.isna(row.get("Age")) else "Unknown"
+                if not pd.isna(age):
+                    age = int(age)
+                    meta_parts.append(f"{age}-year-old")
+
+                meta_parts.append(", ")
+                meta_str = ", ".join(meta_parts)
+            else:
+                meta_str = ""
+
+            # --- Prompt templates ---
             if "Support Devices" in present_labels:
                 patho_labels = [label for label in present_labels if label != "Support Devices"]
-                if patho_labels: # disease and support devices
+                if patho_labels:
                     disease_text = ", ".join(patho_labels)
                     base_prompt = random.choice(self.cond_prompts).format(disease_text)
-                    prompt = base_prompt + ", with visible support devices"
-                else: # No diseases and only support diseases
-                    prompt = random.choice(self.device_prompts)
+                    prompt = f"{meta_str}{base_prompt}, with visible support devices"
+                else:
+                    device_prompt = random.choice(self.device_prompts)
+                    prompt = f"{meta_str}{device_prompt}"
             elif present_labels:
                 disease_text = ", ".join(present_labels)
-                prompt = random.choice(self.cond_prompts).format(disease_text)
+                base_prompt = random.choice(self.cond_prompts).format(disease_text)
+                prompt = f"{meta_str}{base_prompt}"
             else:
-                prompt = random.choice(self.generic_prompts)
-
+                generic_prompt = random.choice(self.generic_prompts)
+                prompt = f"{meta_str}{generic_prompt}"
 
         # Tokenize prompt
         input_ids = self.tokenizer(

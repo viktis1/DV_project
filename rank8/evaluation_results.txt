@@ -1,0 +1,1 @@
+LoRA checkpoint: 1500, FID score: 7.9147

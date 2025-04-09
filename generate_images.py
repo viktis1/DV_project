@@ -134,6 +134,10 @@ def main():
                 # Final memorization metric
                 d = sum(memorization_scores) / len(memorization_scores)
                 print("Memorization detection score:", d)
+                # Save memorization score
+                score_path = os.path.join(output_dir, f"{lora_step}_memorization_scores.txt")
+                with open(score_path, "a") as f:
+                    f.write(f"{prompt_clean}_img{j+1}: {d:.4f}\n")
                 print()
 
 

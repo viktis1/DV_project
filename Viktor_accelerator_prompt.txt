@@ -3,7 +3,7 @@ accelerate launch SD_finetuning_train.py `
 --train_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
 --mixed_precision "fp16" `
 --validation_prompt "A chest X-ray image" `
---output_dir "rank256_condanduncond" `
+--output_dir "rank256_condanduncond_moreinfo" `
 --max_train_steps 5000 `
 --train_batch_size 2 `
 --gradient_accumulation_steps 2 `
@@ -14,7 +14,7 @@ accelerate launch SD_finetuning_train.py `
 
 python generate_images.py `
     --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
-    --lora_weights_path "rank256_condanduncond/lora-steps-3500" `
+    --lora_weights_path "rank256_condanduncond_moreinfo/lora-steps-1500" `
     --prompt `
     "An X-ray image of a chest with Atelectasis" `
     "An X-ray image of a chest with Cardiomegaly" `
@@ -36,6 +36,14 @@ python generate_images.py `
     --mixed_precision fp16 `
     --device cuda `
     --guidance_scale 7.5
+
+python eval.py `
+    --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
+    --lora_weights_path "rank256_condanduncond_moreinfo/lora-steps-1500" `
+    --val_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
+    --seed 42 `
+    --mixed_precision fp16 `
+    --device cuda
 
 Notes (dont copy):
 1. I can run train_batch_size=4, but it is almost 10GB VRAM. Lags my computer

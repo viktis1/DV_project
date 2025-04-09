@@ -1,0 +1,18 @@
+{"time":"2025-04-08T18:46:16.1928085+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"rank256_condanduncond_moreinfo\\wandb\\run-20250408_184615-u43ac4vv\\logs\\debug-core.log"}
+{"time":"2025-04-08T18:46:16.9717827+02:00","level":"INFO","msg":"created new stream","id":"u43ac4vv"}
+{"time":"2025-04-08T18:46:16.9717827+02:00","level":"INFO","msg":"stream: started","id":"u43ac4vv"}
+{"time":"2025-04-08T18:46:16.9717827+02:00","level":"INFO","msg":"handler: started","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T18:46:16.9753606+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T18:46:16.9753606+02:00","level":"INFO","msg":"sender: started","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T18:46:17.2000913+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-08T20:21:36.7281557+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-08T20:48:50.4404298+02:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/group-13/DL%20CV%20project/u43ac4vv/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-04-08T21:04:52.3222488+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-08T21:04:52.322887+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-08T21:04:53.4055069+02:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"updating run config","runtime_seconds":0.1983016}],"total_operations":1}}
+{"time":"2025-04-08T21:05:05.2273069+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-08T21:05:05.7872748+02:00","level":"INFO","msg":"stream: closing","id":"u43ac4vv"}
+{"time":"2025-04-08T21:05:05.7872748+02:00","level":"INFO","msg":"handler: closed","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T21:05:05.7872748+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T21:05:05.7878666+02:00","level":"INFO","msg":"sender: closed","stream_id":"u43ac4vv"}
+{"time":"2025-04-08T21:05:05.7878666+02:00","level":"INFO","msg":"stream: closed","id":"u43ac4vv"}
