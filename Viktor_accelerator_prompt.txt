@@ -45,6 +45,33 @@ python eval.py `
     --mixed_precision fp16 `
     --device cuda
 
+python generate_images.py `
+    --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
+    --lora_weights_paths "rank256_condanduncond_moreinfo/lora-steps-2000" "rank256_condanduncond_moreinfo/lora-steps-4000" `
+    --val_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
+    --prompt `
+    "An X-ray image of a chest with Atelectasis" `
+    "An X-ray image of a chest with Cardiomegaly" `
+    "An X-ray image of a chest with Consolidation" `
+    "An X-ray image of a chest with Edema" `
+    "An X-ray image of a chest with Enlarged Cardiomediastinum" `
+    "An X-ray image of a chest with Fracture" `
+    "An X-ray image of a chest with Lung Lesion" `
+    "An X-ray image of a chest with Lung Opacity" `
+    "An X-ray image of a chest with Pleural Effusion" `
+    "An X-ray image of a chest with Pleural Other" `
+    "An X-ray image of a chest with Pneumonia" `
+    "An X-ray image of a chest with Pneumothorax" `
+    "An X-ray image of a chest with Support Devices" `
+    "An X-ray image of a chest with No Finding" `
+    --num_images 2 `
+    --num_inference_steps 50 `
+    --seed 42 `
+    --mixed_precision fp16 `
+    --device cuda `
+    --guidance_scale 7.5
+
+
 Notes (dont copy):
 1. I can run train_batch_size=4, but it is almost 10GB VRAM. Lags my computer
 2. the rank means that we are training ~200k parameters per rank.
