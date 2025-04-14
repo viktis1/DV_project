@@ -1,0 +1,8 @@
+{"time":"2025-04-12T23:42:35.1128215+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"simplePrompt\\wandb\\run-20250412_234235-w0di0wge\\logs\\debug-core.log"}
+{"time":"2025-04-12T23:42:35.4273578+02:00","level":"INFO","msg":"created new stream","id":"w0di0wge"}
+{"time":"2025-04-12T23:42:35.4273578+02:00","level":"INFO","msg":"stream: started","id":"w0di0wge"}
+{"time":"2025-04-12T23:42:35.4273578+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"w0di0wge"}
+{"time":"2025-04-12T23:42:35.4278682+02:00","level":"INFO","msg":"sender: started","stream_id":"w0di0wge"}
+{"time":"2025-04-12T23:42:35.4278682+02:00","level":"INFO","msg":"handler: started","stream_id":"w0di0wge"}
+{"time":"2025-04-12T23:42:35.6069629+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-13T01:17:06.103158+02:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/group-13/DL%20CV%20project/w0di0wge/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}

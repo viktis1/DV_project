@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument("--base_model_path", type=str, required=True)
     parser.add_argument("--lora_weights_paths", type=str, nargs='+', required=True, help="One or more LoRA weights directories")
     parser.add_argument("--val_data_dir", type=str, required=True)
-    parser.add_argument("--prompt", type=str, nargs="+", required=True)
+    parser.add_argument("--prompt", type=str, nargs="+")
     parser.add_argument("--num_images", type=int, default=4)
     parser.add_argument("--num_inference_steps", type=int, default=25)
     parser.add_argument("--seed", type=int, default=42)
@@ -79,7 +79,7 @@ def generate_images(pipe, args, generator, lora_path, lora_step, output_dir):
                 image = (image / 2 + 0.5).clamp(0, 1)
                 image = pipe.image_processor.postprocess(image, output_type="pil")[0]
 
-                prompt_clean = re.sub(r'\W+', '_', prompt.lower())[:40]
+                prompt_clean = re.sub(r'\W+', '_', prompt.lower())
                 image_path = os.path.join(output_dir, f"{lora_step}_{prompt_clean}_img{j+1}.png")
                 image.save(image_path)
 
@@ -150,6 +150,29 @@ def compute_fid(args, lora_step, output_dir):
 
 def main():
     args = parse_args()
+
+    # Override prompt list programmatically
+    label_cols = [
+        "Atelectasis", "Cardiomegaly", "Consolidation", "Edema",
+        "Enlarged Cardiomediastinum", "Fracture", "Lung Lesion",
+        "Lung Opacity", "Pleural Effusion", "Pleural Other",
+        "Pneumonia", "Pneumothorax", "Support Devices", "No Finding"
+    ]
+
+    view_types = ["frontal", "lateral"]
+    device_options = ["with support devices", "without support devices"]
+
+    # Generate prompts
+    prompts = []
+    for view in view_types:
+        for label in label_cols:
+            for device in device_options:
+                disease_text = label if label != "No Finding" else "no findings"
+                prompt = f"A {view} view of a chest X-ray with {disease_text} {device}"
+                prompts.append(prompt)
+
+    args.prompt = prompts
+
     dtype_map = {"no": torch.float32, "fp16": torch.float16, "bf16": torch.bfloat16}
     dtype = dtype_map[args.mixed_precision]
 
