@@ -1,0 +1,87 @@
+{'thresholding', 'sample_max_value', 'clip_sample_range', 'dynamic_thresholding_ratio', 'timestep_spacing', 'prediction_type', 'variance_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+{'force_upcast', 'use_quant_conv', 'latents_std', 'latents_mean', 'use_post_quant_conv', 'shift_factor', 'scaling_factor', 'mid_block_add_attention'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing AutoencoderKL.
+
+All the weights of AutoencoderKL were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKL for predictions without further training.
+{'num_class_embeds', 'timestep_post_act', 'cross_attention_norm', 'dual_cross_attention', 'encoder_hid_dim', 'class_embed_type', 'use_linear_projection', 'attention_type', 'addition_embed_type', 'conv_in_kernel', 'reverse_transformer_layers_per_block', 'mid_block_only_cross_attention', 'time_cond_proj_dim', 'time_embedding_type', 'addition_time_embed_dim', 'time_embedding_act_fn', 'conv_out_kernel', 'encoder_hid_dim_type', 'class_embeddings_concat', 'dropout', 'num_attention_heads', 'transformer_layers_per_block', 'resnet_time_scale_shift', 'only_cross_attention', 'resnet_skip_time_act', 'mid_block_type', 'projection_class_embeddings_input_dim', 'resnet_out_scale_factor', 'upcast_attention', 'addition_embed_type_num_heads', 'time_embedding_dim'} was not found in config. Values will be initialized to default values.
+All model checkpoint weights were used when initializing UNet2DConditionModel.
+
+All the weights of UNet2DConditionModel were initialized from the model checkpoint at stable-diffusion-v1-5/stable-diffusion-v1-5.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use UNet2DConditionModel for predictions without further training.
+Total trainable LoRA parameters: 51019776
+***** Running training *****
+  Num examples = 5000
+  Num Epochs = 12
+  Instantaneous batch size per device = 2
+  Total train batch size (w. parallel, distributed & accumulation) = 4
+  Gradient Accumulation steps = 2
+  Total optimization steps = 15000
+Resuming full training state from simplePrompt\checkpoint-10000
+Steps:  67%|███████████████████████████████████████████████▏                      | 10100/15000 [02:09<2:18:43,  1.70s/it, loss=0.167, lr=0.0001]{'image_encoder', 'requires_safety_checker'} was not found in config. Values will be initialized to default values.
+Running validation...
+ Generating 4 images with prompt: A chest X-ray image.
+                                                                                                                                                 Loaded feature_extractor as CLIPImageProcessor from `feature_extractor` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+{'timestep_spacing', 'prediction_type'} was not found in config. Values will be initialized to default values.             | 0/6 [00:00<?, ?it/s]
+Loaded scheduler as PNDMScheduler from `scheduler` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 228.11it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+{'sample_max_value', 'use_flow_sigmas', 'use_beta_sigmas', 'final_sigmas_type', 'lower_order_final', 'variance_type', 'solver_order', 'use_karras_sigmas', 'use_lu_lambdas', 'lambda_min_clipped', 'dynamic_thresholding_ratio', 'flow_shift', 'thresholding', 'timestep_spacing', 'prediction_type', 'use_exponential_sigmas', 'euler_at_final', 'algorithm_type', 'solver_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+Steps:  68%|████████████████████████████████████████████████▎                      | 10200/15000 [04:51<57:23,  1.39it/s, loss=0.0349, lr=0.0001]{'image_encoder', 'requires_safety_checker'} was not found in config. Values will be initialized to default values.
+Running validation...
+ Generating 4 images with prompt: A chest X-ray image.
+                                                                                                                                                 Loaded feature_extractor as CLIPImageProcessor from `feature_extractor` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+{'timestep_spacing', 'prediction_type'} was not found in config. Values will be initialized to default values.             | 0/6 [00:00<?, ?it/s]
+Loaded scheduler as PNDMScheduler from `scheduler` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 997.14it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+{'sample_max_value', 'use_flow_sigmas', 'use_beta_sigmas', 'final_sigmas_type', 'lower_order_final', 'variance_type', 'solver_order', 'use_karras_sigmas', 'use_lu_lambdas', 'lambda_min_clipped', 'dynamic_thresholding_ratio', 'flow_shift', 'thresholding', 'timestep_spacing', 'prediction_type', 'use_exponential_sigmas', 'euler_at_final', 'algorithm_type', 'solver_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+Steps:  69%|████████████████████████████████████████████████                      | 10300/15000 [07:19<1:23:38,  1.07s/it, loss=0.177, lr=0.0001]{'image_encoder', 'requires_safety_checker'} was not found in config. Values will be initialized to default values.
+Running validation...
+ Generating 4 images with prompt: A chest X-ray image.
+                                                                                                                                                 Loaded feature_extractor as CLIPImageProcessor from `feature_extractor` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+{'timestep_spacing', 'prediction_type'} was not found in config. Values will be initialized to default values.             | 0/6 [00:00<?, ?it/s]
+Loaded scheduler as PNDMScheduler from `scheduler` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 284.13it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+{'sample_max_value', 'use_flow_sigmas', 'use_beta_sigmas', 'final_sigmas_type', 'lower_order_final', 'variance_type', 'solver_order', 'use_karras_sigmas', 'use_lu_lambdas', 'lambda_min_clipped', 'dynamic_thresholding_ratio', 'flow_shift', 'thresholding', 'timestep_spacing', 'prediction_type', 'use_exponential_sigmas', 'euler_at_final', 'algorithm_type', 'solver_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+Steps:  69%|███████████████████████████████████████████████▏                    | 10400/15000 [09:45<1:27:07,  1.14s/it, loss=0.00606, lr=0.0001]{'image_encoder', 'requires_safety_checker'} was not found in config. Values will be initialized to default values.
+Running validation...
+ Generating 4 images with prompt: A chest X-ray image.
+                                                                                                                                                 Loaded feature_extractor as CLIPImageProcessor from `feature_extractor` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+{'timestep_spacing', 'prediction_type'} was not found in config. Values will be initialized to default values.             | 0/6 [00:00<?, ?it/s]
+Loaded scheduler as PNDMScheduler from `scheduler` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+Loading pipeline components...: 100%|█████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 360.63it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+{'sample_max_value', 'use_flow_sigmas', 'use_beta_sigmas', 'final_sigmas_type', 'lower_order_final', 'variance_type', 'solver_order', 'use_karras_sigmas', 'use_lu_lambdas', 'lambda_min_clipped', 'dynamic_thresholding_ratio', 'flow_shift', 'thresholding', 'timestep_spacing', 'prediction_type', 'use_exponential_sigmas', 'euler_at_final', 'algorithm_type', 'solver_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+Steps:  70%|█████████████████████████████████████████████████                     | 10500/15000 [12:44<1:56:44,  1.56s/it, loss=0.225, lr=0.0001]Model weights saved in simplePrompt/lora-steps-10500/pytorch_lora_weights.safetensors
+Saving LoRA weights only
+2 checkpoints already exist, removing 1 checkpoints
+removing checkpoints: checkpoint-9500
+Saved state to simplePrompt\checkpoint-10500
+Running validation...
+ Generating 4 images with prompt: A chest X-ray image.
+{'image_encoder', 'requires_safety_checker'} was not found in config. Values will be initialized to default values.
+                                                                                                                                                 Loaded feature_extractor as CLIPImageProcessor from `feature_extractor` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+{'timestep_spacing', 'prediction_type'} was not found in config. Values will be initialized to default values.             | 0/6 [00:00<?, ?it/s]
+Loaded scheduler as PNDMScheduler from `scheduler` subfolder of stable-diffusion-v1-5/stable-diffusion-v1-5.
+Loading pipeline components...: 100%|██████████████████████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 73.49it/s]
+You have disabled the safety checker for <class 'diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion.StableDiffusionPipeline'> by passing `safety_checker=None`. Ensure that you abide to the conditions of the Stable Diffusion license and do not expose unfiltered results in services or applications open to the public. Both the diffusers team and Hugging Face strongly recommend to keep the safety filter enabled in all public facing circumstances, disabling it only for use-cases that involve analyzing network behavior or auditing its results. For more information, please have a look at https://github.com/huggingface/diffusers/pull/254 .
+{'sample_max_value', 'use_flow_sigmas', 'use_beta_sigmas', 'final_sigmas_type', 'lower_order_final', 'variance_type', 'solver_order', 'use_karras_sigmas', 'use_lu_lambdas', 'lambda_min_clipped', 'dynamic_thresholding_ratio', 'flow_shift', 'thresholding', 'timestep_spacing', 'prediction_type', 'use_exponential_sigmas', 'euler_at_final', 'algorithm_type', 'solver_type', 'rescale_betas_zero_snr'} was not found in config. Values will be initialized to default values.
+Steps:  70%|████████████████████████████████████████████████▌                    | 10547/15000 [15:17<2:14:01,  1.81s/it, loss=0.0643, lr=0.0001]Traceback (most recent call last):
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 477, in <module>
+    main()
+  File "C:\Users\isaks\OneDrive - Danmarks Tekniske Universitet\DTU\10semester\Adv_DL_CV\project\SD_finetuning_train.py", line 391, in main
+    optimizer.step()
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\accelerate\optimizer.py", line 165, in step
+    self.scaler.step(self.optimizer, closure)
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\amp\grad_scaler.py", line 457, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\amp\grad_scaler.py", line 351, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\isaks\miniconda3\envs\adv_dl_cv\Lib\site-packages\torch\amp\grad_scaler.py", line 351, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+               ^^^^^^^^
+KeyboardInterrupt

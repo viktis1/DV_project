@@ -11,6 +11,7 @@ from scipy import linalg
 from transformers import CLIPTokenizer
 from chexpert_dataset import CheXpertDataset
 from diffusers.pipelines.stable_diffusion.pipeline_stable_diffusion import retrieve_timesteps
+from diffusers import DDPMScheduler
 
 
 def parse_args():
@@ -87,6 +88,10 @@ def generate_images(pipe, args, generator, lora_path, lora_step, output_dir):
                 print("Memorization detection score:", d)
                 with open(os.path.join(output_dir, f"{lora_step}_memorization_scores.txt"), "a") as f:
                     f.write(f"{prompt_clean}_img{j+1}: {d:.4f}\n")
+
+                # Save full time-series of scores for this image
+                scores_path = os.path.join(output_dir, f"{lora_step}_{prompt_clean}_img{j+1}_memo_scores.npy")
+                np.save(scores_path, np.array(memorization_scores))
                 print()
 
 
