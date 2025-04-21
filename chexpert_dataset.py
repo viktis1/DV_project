@@ -8,7 +8,7 @@ from torchvision import transforms
 
 
 class CheXpertDataset(Dataset):
-    def __init__(self, data_dir, tokenizer, csv_name="train.csv", image_size=512, max_samples=5000):
+    def __init__(self, data_dir, tokenizer, csv_name="train.csv", image_size=512, max_samples=5000, overfit_n=None, overfit_repeat=None):
         self.data_dir = data_dir
         self.tokenizer = tokenizer
 
@@ -16,6 +16,8 @@ class CheXpertDataset(Dataset):
         self.df = pd.read_csv(csv_path)
         self.df = self.df.iloc[:max_samples].reset_index(drop=True) # Limit the dataset size
 
+        self.overfit_n = overfit_n
+        self.overfit_repeat = overfit_repeat
 
         self.label_cols = [
             "Atelectasis", "Cardiomegaly", "Consolidation", "Edema",
@@ -30,10 +32,27 @@ class CheXpertDataset(Dataset):
             transforms.ToTensor()
         ])
 
+        if self.overfit_n is not None and self.overfit_repeat is not None:
+            self._create_overfit_mapping()
+
+    def _create_overfit_mapping(self):
+        total_samples = len(self.df)
+        self.mapping = []
+
+        # repeat the first overfit_n samples overfit_repeat times
+        for i in range(self.overfit_n):
+            self.mapping.extend([i] * self.overfit_repeat)
+
+        # keep the rest of the samples
+        for i in range(self.overfit_n, total_samples):
+            self.mapping.append(i)
+
     def __len__(self):
-        return len(self.df)
+        return len(self.mapping) if hasattr(self, 'mapping') else len(self.df)
 
     def __getitem__(self, idx):
+        if hasattr(self, 'mapping'):
+            idx = self.mapping[idx]
         row = self.df.iloc[idx]
 
         relative_path = row["Path"].replace("CheXpert-v1.0-small/", "")
