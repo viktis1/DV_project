@@ -1,0 +1,5 @@
+unet checkpoint: 10000, FID score: 7.6803
+unet checkpoint: 10000, FID score: 7.6803
+unet checkpoint: 10000, FID score: 7.6803
+unet checkpoint: 10000, FID score: 7.6803
+unet checkpoint: 10000, FID score: 7.6803

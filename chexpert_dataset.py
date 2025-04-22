@@ -73,8 +73,23 @@ class CheXpertDataset(Dataset):
             view_type = str(row.get("Frontal/Lateral", "frontal")).strip().lower()
             if view_type not in ["frontal", "lateral"]:
                 view_type = "frontal"
-                
-            prompt = f"A {view_type} view of a chest X-ray with {disease_text} {device_str}"
+            # Gender and age
+            sex = str(row.get("Sex", "unknown")).strip().lower()
+            if sex == "male":
+                sex_str = "a male"
+            elif sex == "female":
+                sex_str = "a female"
+            else:
+                sex_str = "a person"
+
+            age = row.get("Age")
+            try:
+                age = int(float(age))
+                age_str = f"{age}-year-old"
+            except (ValueError, TypeError):
+                age_str = "unknown-age"
+
+            prompt = f"A {view_type} view of a chest X-ray of {sex_str}, {age_str}, with {disease_text} {device_str}"
 
         # Tokenize prompt
         input_ids = self.tokenizer(

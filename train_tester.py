@@ -23,7 +23,7 @@ def main():
     tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-large-patch14")
 
     dataset = CheXpertDataset(
-        data_dir="C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1",
+        data_dir="/dtu/blackhole/1d/214141/CheXpert-v1.0-small",
         csv_name="train.csv",
         tokenizer=tokenizer
     )

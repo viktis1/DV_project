@@ -1,2 +1,0 @@
-LoRA checkpoint: 5000, FID score: 7.2993
-LoRA checkpoint: 10000, FID score: 7.8582

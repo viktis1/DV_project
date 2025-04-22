@@ -1,35 +1,35 @@
-accelerate launch SD_finetuning_train.py `
---pretrained_model_name_or_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
---train_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
---mixed_precision "fp16" `
---validation_prompt "A chest X-ray image" `
---output_dir "simplePrompt" `
---max_train_steps 10000 `
---train_batch_size 2 `
---gradient_accumulation_steps 2 `
---gradient_checkpointing `
---rank 256 `
---resume_from_checkpoint latest `
+accelerate launch SD_finetuning_train.py \
+--pretrained_model_name_or_path "stable-diffusion-v1-5/stable-diffusion-v1-5" \
+--train_data_dir "/dtu/blackhole/1d/214141/CheXpert-v1.0-small" \
+--mixed_precision "fp16" \
+--validation_prompt "A chest X-ray image" \
+--output_dir "simplePrompt" \
+--max_train_steps 10000 \
+--train_batch_size 2 \
+--gradient_accumulation_steps 2 \
+--gradient_checkpointing \
+--rank 256 \
+--resume_from_checkpoint latest \
 --checkpoints_total_limit 2
 
-python generate_images.py `
-    --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
-    --lora_weights_paths "simplePrompt/lora-steps-10000" `
-    --val_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
-    --num_images 1 `
-    --num_inference_steps 50 `
-    --seed 42 `
-    --mixed_precision fp16 `
-    --device cuda `
+python generate_images.py \
+    --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" \
+    --lora_weights_paths "simplePrompt/lora-steps-10000" \
+    --val_data_dir "/dtu/blackhole/1d/214141/CheXpert-v1.0-small" \
+    --num_images 1 \
+    --num_inference_steps 50 \
+    --seed 42 \
+    --mixed_precision fp16 \
+    --device cuda \
     --guidance_scale 7.5
 
-python memorization_scan.py `
-  --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" `
-  --mixed_precision fp16 `
-  --train_data_dir "C:/Users/isaks/.cache/kagglehub/datasets/ashery/chexpert/versions/1" `
-  --gen_im_dir "simplePrompt/generated_images" `
-  --batch_size 4 `
-  --image_size 512 `
+python memorization_scan.py \
+  --base_model_path "stable-diffusion-v1-5/stable-diffusion-v1-5" \
+  --mixed_precision fp16 \
+  --train_data_dir "/dtu/blackhole/1d/214141/CheXpert-v1.0-small" \
+  --gen_im_dir "simplePrompt/generated_images" \
+  --batch_size 4 \
+  --image_size 512 \
   --output_path "simplePrompt/best_train_matches.npy"
 
 Notes (dont copy):

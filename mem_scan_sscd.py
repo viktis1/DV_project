@@ -128,6 +128,7 @@ def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", ima
     os.makedirs(save_dir, exist_ok=True)
 
     data = np.load(npy_path)
+    print(data)
     match_indices = data["indices"]
     similarity_scores = data["scores"]
 
@@ -172,8 +173,8 @@ def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", ima
 if __name__ == "__main__":
     args = parse_args()
     
-    # main()
-    # plot_matches(args.output_path, args.gen_im_dir, args.train_data_dir)
+    main()
+    plot_matches(args.output_path, args.gen_im_dir, args.train_data_dir)
 
     # Show prompts for the first 10 training samples
     print("\nPrompts for the first 10 training samples in order:")

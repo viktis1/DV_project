@@ -1,0 +1,1 @@
+unet checkpoint: 10000, FID score: 8.4938
