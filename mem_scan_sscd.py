@@ -41,7 +41,7 @@ def parse_args():
     parser.add_argument("--gen_im_dir", type=str, required=True, help="Folder containing generated images.")
     parser.add_argument("--batch_size", type=int, default=16, help="Batch size for loading training data.")
     parser.add_argument("--image_size", type=int, default=512, help="Image size (assumed square) for resizing and comparison.")
-    parser.add_argument("--output_path", type=str, default="best_train_matches.npy", help="Where to save the best match indices.")
+    parser.add_argument("--output_path", type=str, default="best_train_matches.npz", help="Where to save the best match indices.")
 
 
     return parser.parse_args()
@@ -112,8 +112,8 @@ def main():
             current_index += train_imgs.size(0)
 
         # Save results
-        np.save(args.output_path, best_indices.cpu().numpy())
-        print(f"Saved best match indices to {args.output_path}")
+        np.savez(args.output_path, indices=best_indices.cpu().numpy(), scores=best_scores.cpu().numpy())
+        print(f"Saved best match indices and scores to {args.output_path}")
 
 
 def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", image_size=512, num_to_plot=1000):
@@ -127,7 +127,10 @@ def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", ima
     save_dir = os.path.join(gen_im_dir, "memorization")
     os.makedirs(save_dir, exist_ok=True)
 
-    match_indices = np.load(npy_path)
+    data = np.load(npy_path)
+    match_indices = data["indices"]
+    similarity_scores = data["scores"]
+
 
     # Load and sort generated image filenames
     gen_filenames = sorted([f for f in os.listdir(gen_im_dir) if f.endswith(".png")])
@@ -153,7 +156,7 @@ def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", ima
         axs[0].axis("off")
 
         axs[1].imshow(train_img)
-        axs[1].set_title("Most Similar Train")
+        axs[1].set_title(f"Train (sim={similarity_scores[i]:.3f})")
         axs[1].axis("off")
 
         plt.tight_layout()
@@ -169,5 +172,22 @@ def plot_matches(npy_path, gen_im_dir, train_data_dir, csv_name="train.csv", ima
 if __name__ == "__main__":
     args = parse_args()
     
-    main()
-    plot_matches(args.output_path, args.gen_im_dir, args.train_data_dir)
+    # main()
+    # plot_matches(args.output_path, args.gen_im_dir, args.train_data_dir)
+
+    # Show prompts for the first 10 training samples
+    print("\nPrompts for the first 10 training samples in order:")
+
+    train_dataset = CheXpertDataset(
+        data_dir=args.train_data_dir,
+        csv_name="train.csv",
+        tokenizer=tokenizer,
+        image_size=args.image_size
+    )
+    train_loader = DataLoader(train_dataset, batch_size=1, shuffle=False)
+
+    for idx, batch in enumerate(islice(train_loader, 10)):
+        print(f"Sample {idx}")
+        print()
+
+    print("\nNote: These are the samples that were repeated during training.")
